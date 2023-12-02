@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/ggwpgoty/static/css/main.f855e6bc.css",
-    "main.js": "/ggwpgoty/static/js/main.27eb505d.js",
+    "main.css": "/ggwpgoty/static/css/main.88ebfcbf.css",
+    "main.js": "/ggwpgoty/static/js/main.847f3427.js",
     "static/js/787.f586926c.chunk.js": "/ggwpgoty/static/js/787.f586926c.chunk.js",
-    "static/media/logo.svg": "/ggwpgoty/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/lilith.webp": "/ggwpgoty/static/media/lilith.2b4f54ee2a97f96aac5d.webp",
+    "static/media/shadow.webp": "/ggwpgoty/static/media/shadow.e19efd895216d4479b0f.webp",
+    "static/media/johny.webp": "/ggwpgoty/static/media/johny.86223ee9127a33fd5a42.webp",
+    "static/media/ghost.webp": "/ggwpgoty/static/media/ghost.8ed7de10423d02c9df5a.webp",
     "index.html": "/ggwpgoty/index.html",
-    "main.f855e6bc.css.map": "/ggwpgoty/static/css/main.f855e6bc.css.map",
-    "main.27eb505d.js.map": "/ggwpgoty/static/js/main.27eb505d.js.map",
+    "main.88ebfcbf.css.map": "/ggwpgoty/static/css/main.88ebfcbf.css.map",
+    "main.847f3427.js.map": "/ggwpgoty/static/js/main.847f3427.js.map",
     "787.f586926c.chunk.js.map": "/ggwpgoty/static/js/787.f586926c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.27eb505d.js"
+    "static/css/main.88ebfcbf.css",
+    "static/js/main.847f3427.js"
   ]
 }
