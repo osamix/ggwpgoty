@@ -5,6 +5,7 @@ import lilith from "./lilith.webp"
 import ghost from "./ghost.webp"
 import shadow from "./shadow.webp"
 import johny from "./johny.webp"
+import plecy from "./plecy.webp"
 
 const MAX_STARTING_POINTS_TO_USE = 12
 
@@ -19,6 +20,8 @@ function App() {
   }])
   const [isLoading, setIsLoading] = useState(false)
   const [showJohny, setShowJohny] = useState(false)
+  const [showLight, setShowLight] = useState(false)
+  const [showBubble, setShowBubble] = useState(false)
 
   useEffect(() => {
     let points = 0
@@ -32,6 +35,16 @@ function App() {
       setShowJohny(true)
     } else {
       setShowJohny(false)
+    }
+    if (gamesList.some(game => game.name.toLowerCase().includes("alan") || game.name.toLowerCase().includes("wake"))) {
+      setShowLight(true)
+    } else {
+      setShowLight(false)
+    }
+    if (gamesList.some(game => game.name.toLowerCase().includes("call of duty"))) {
+      setShowBubble(true)
+    } else {
+      setShowBubble(false)
     }
   }, [gamesList])
 
@@ -130,9 +143,14 @@ function App() {
       <img className="image lilith" src={lilith} alt="" />
       <img className="image shadow" src={shadow} alt="" />
       <img className="image ghost" src={ghost} alt="" />
+      <img className={`image bubble ${showBubble ? "bubble-visible" : ""}`} src={plecy} alt="" />
       <img className={`image johny1 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
       <img className={`image johny2 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
       <img className={`image johny3 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
+      <div className={`light-off ${showLight ? "flashlight-visible" : ""}`} />
+      <div className={`flashlight-wrapper ${showLight ? "flashlight-visible" : ""}`}>
+        <div className={`flashlight`}></div>
+      </div>
       <form
         id="form"
         onSubmit={submitForm}

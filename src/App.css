@@ -110,7 +110,22 @@ transform: scaleX(-1);
 }
 
 .johny-visible {
-  display: block;
+  @media only screen and (min-width: 1200px) {
+    display: block;
+  }
+}
+
+.bubble {
+  display: none;
+  bottom: 330px;
+  left: 300px;
+  width: 150px;
+}
+
+.bubble-visible {
+  @media only screen and (min-width: 1200px) {
+    display: block;
+  }
 }
 
 .nameInput {
@@ -166,4 +181,56 @@ transform: scaleX(-1);
 .submitButton:disabled {
   background-color: silver;
   cursor: not-allowed;
+}
+
+.flashlight-wrapper {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100vh;
+  perspective: 150px;
+  transform: rotate(-115deg);
+  transform-origin: center;
+  animation-name: flash;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.light-off {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  opacity: .7;
+  z-index: 2;
+}
+
+.flashlight {
+  height: 100vh;
+  width: 100px;
+  background: white;
+  transform: rotateX(45deg);
+  opacity: .5;
+}
+
+.flashlight-visible {
+  @media only screen and (min-width: 1200px) {
+    display: block;
+  }
+}
+
+@keyframes flash {
+  from {
+    transform: rotate(-115deg);
+  }
+
+  to {
+    transform: rotate(-75deg);
+  }
 }
