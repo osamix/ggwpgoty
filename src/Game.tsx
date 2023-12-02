@@ -40,7 +40,7 @@ export const Game = ({ id, name, points, index, isLoading, onNameChange, onPoint
                 required
             />
             <button
-                disabled={isLoading}
+                disabled={isLoading || points === 1}
                 type="button"
                 onClick={minusPoints}
                 className="points"
@@ -48,7 +48,7 @@ export const Game = ({ id, name, points, index, isLoading, onNameChange, onPoint
             <span>{points}</span>
             <input className="pointsInput" name={`score${index + 1}`} value={points} readOnly required/>
             <button
-                disabled={isLoading}
+                disabled={isLoading || points === 7}
                 type="button"
                 onClick={plusPoints}
                 className="points">+</button>

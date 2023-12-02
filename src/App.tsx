@@ -1,7 +1,10 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { Game, GameProps } from './Game'
 import './App.css';
-import unicorn from "./unicorn-sparkles.gif"
+import lilith from "./lilith.webp"
+import ghost from "./ghost.webp"
+import shadow from "./shadow.webp"
+import johny from "./johny.webp"
 
 const MAX_STARTING_POINTS_TO_USE = 12
 
@@ -15,6 +18,7 @@ function App() {
     points: 1
   }])
   const [isLoading, setIsLoading] = useState(false)
+  const [showJohny, setShowJohny] = useState(false)
 
   useEffect(() => {
     let points = 0
@@ -24,6 +28,11 @@ function App() {
     setPointsUsed(points)
     let games = gamesList.length
     setPointsToUse(Math.max(MAX_STARTING_POINTS_TO_USE, MAX_STARTING_POINTS_TO_USE + games - 3))
+    if (gamesList.some(game => game.name.toLowerCase().includes("cyberpunk") || game.name.toLowerCase().includes("2077"))) {
+      setShowJohny(true)
+    } else {
+      setShowJohny(false)
+    }
   }, [gamesList])
 
   const resetState = () => {
@@ -58,8 +67,8 @@ function App() {
   }
 
   const addNewGame = () => {
-    if (gamesList.length >= 10) {
-      alert("Dobra, dobra, wystarczy, nikt nie będzie tego czytał.")
+    if (gamesList.length >= 5) {
+      alert("Get a life")
       return;
     }
     const game = {
@@ -72,7 +81,6 @@ function App() {
 
   const removeGame = (id: number) => {
     if (gamesList.length === 1) {
-      alert("Nie no, jedną chociaż zostaw")
       return
     }
     setGamesList(prevState => {
@@ -95,16 +103,22 @@ function App() {
       return
     }
     if (gamesList.some(game => game.name === "")) {
-      alert("Gra bez tytułu? Jakiś no name z bazaru?")
+      alert("Gra bez tytułu? Jakiś no-name z bazaru?")
       setIsLoading(false)
       return
+    }
+    if (pointsUsed < pointsToUse) {
+      if (!window.confirm(`Zostało Ci ${pointsToUse - pointsUsed} punktów, wysłać wynik mimo to?`)){
+        setIsLoading(false)
+        return
+      }
     }
     fetch("https://script.google.com/macros/s/AKfycbzmO9NG-D5_mbui1avgdDLoWV9TXlm38TwdkISa3bCQxzpzB0cAdR7tPCf0if2wGM_WAg/exec", {
       method: 'POST',
       body: new FormData(formData.currentTarget),
     })
     .then(() => {
-      alert("Dziękować! Zapraszam na kanał cycki na zasłużoną nagrodę.");
+      alert("Dziękować! Zapraszam na kanał cycki po zasłużoną nagrodę.");
       resetState()
     })
     .catch((err) => alert("AJ WAJ, coś się zesrało!"))
@@ -113,13 +127,18 @@ function App() {
 
   return (
     <div className="App">
+      <img className="image lilith" src={lilith} alt="" />
+      <img className="image shadow" src={shadow} alt="" />
+      <img className="image ghost" src={ghost} alt="" />
+      <img className={`image johny1 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
+      <img className={`image johny2 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
+      <img className={`image johny3 ${showJohny ? "johny-visible" : ""}`} src={johny} alt="" />
       <form
         id="form"
         onSubmit={submitForm}
         className="container"
       >
         <header className="header">
-        <img className="image" src={unicorn} />
           <span className="c1">G</span>
           <span className="c2">G</span>
           <span className="c3">W</span>
@@ -129,7 +148,6 @@ function App() {
           <span className="c5">O</span>
           <span className="c6">T</span>
           <span className="c7">Y</span>
-          <img className="image2" src={unicorn} />
         </header>
         <input
           disabled={isLoading}
@@ -157,7 +175,7 @@ function App() {
           />
           ))}
         <button
-          disabled={isLoading || gamesList.length === 10}
+          disabled={isLoading || gamesList.length === 5}
           type="button"
           className="addButton"
           onClick={addNewGame}

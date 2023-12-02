@@ -3,16 +3,17 @@
     width: 100%;
     max-width: 500px;
     display: grid;
-    grid-template-columns: 20px 1fr 40px 30px 40px 50px;
-    gap: 10px;
+    grid-template-columns: 25px 1fr 40px 20px 40px 50px;
+    gap: 5px;
     align-items: center;
     margin-bottom: 10px;
 }
 
 .input {
     height: 40px;
+    min-width: 50px;
     border-radius: 5px;
-    border-width: 1;
+    border-width: 1px;
     padding: 5px 10px;
     font-size: 16px;
     border-color: black;
@@ -35,11 +36,11 @@
 
 .points:disabled {
     background-color: slategrey;
-    cursor: progress;
+    cursor: not-allowed;
 }
 
 .removeButton {
-    background-color: red;
+    background-color: #CC2936;
     height: 40px;
     width: 40px;
     border-radius: 20px;
@@ -47,10 +48,10 @@
     color: whitesmoke;
     border-width: 0;
     cursor: pointer;
-    margin-left: 10px;
+    justify-self: center;
 }
 
 .removeButton:disabled {
     background-color: slategrey;
-    cursor: progress;
+    cursor: not-allowed;
 }

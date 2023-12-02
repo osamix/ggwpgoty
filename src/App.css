@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
 .App {
+  position: relative;
   text-align: center;
-  background-color: white;
+  background-color: #121212;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  font-family: 'Nunito', sans-serif;
+  color: whitesmoke;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -14,12 +23,12 @@
   flex-direction: column;
   align-items: center;
   max-width: 500px;
+  z-index: 3;
 }
 
 .header {
   margin-top: 20px;
   font-size: calc(10px + 5vmin);
-  font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,12 +63,54 @@
 }
 
 .image {
-  height: 40px;
+  @media only screen and (max-width: 1200px) {
+    display:none;
+  }
+  position: absolute;
 }
 
-.image2 {
-  height: 40px;
-  transform: scaleX(-1);
+.lilith {
+  bottom: 0;
+  right: -100px;
+  max-height: 90vh;
+}
+
+.ghost {
+bottom: 0;
+left: 100px;
+}
+
+.shadow {
+top: -10px;
+left: 0;
+transform: scaleX(-1);
+}
+
+.johny1 {
+  display: none;
+  transform: rotate(180deg);
+  height: 40vh;
+  top: -20px;
+  left: 0px;
+}
+
+.johny2 {
+  display: none;
+  transform: rotate(-15deg);
+  top: 0;
+  right: -300px;
+}
+
+.johny3 {
+  display: none;
+  transform: rotate(45deg);
+  height: 70vh;
+  bottom: -30px;
+  left: -30px;
+}
+
+.johny-visible {
+  display: block;
 }
 
 .nameInput {
@@ -90,7 +141,7 @@
   font-size: 16px;
   border-radius: 5px;
   border-width: 0;
-  background-color: yellowgreen;
+  background-color: #5B8C5A;
   color: black;
   cursor: pointer;
   margin: 20px 0;
@@ -107,7 +158,7 @@
   font-size: 20px;
   border-radius: 5px;
   border-width: 0;
-  background-color: goldenrod;
+  background-color: #E8985E;
   color: black;
   cursor: pointer;
   margin-bottom: 20px;
